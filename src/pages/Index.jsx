@@ -27,7 +27,11 @@ const sampleProducts = [
   },
 ];
 
-const Index = () => {
+const Index = ({ searchQuery }) => {
+  const filteredProducts = sampleProducts.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <Container maxW="container.xl" p={4}>
       <VStack spacing={4} align="stretch">
@@ -38,7 +42,7 @@ const Index = () => {
           Your one-stop shop for the latest electronics
         </Text>
         <SimpleGrid columns={[1, 2, 3]} spacing={10} mt={8}>
-          {sampleProducts.map((product) => (
+          {filteredProducts.map((product) => (
             <Box key={product.id} borderWidth="1px" borderRadius="lg" overflow="hidden" p={4}>
               <Image src={product.image} alt={product.name} />
               <Text fontSize="xl" fontWeight="bold" mt={2}>

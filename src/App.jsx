@@ -9,8 +9,8 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<Index />} />
-      <Route path="/products" element={<Products />} />
+        <Route exact path="/" element={<Index searchQuery={searchQuery} />} />
+        <Route path="/products" element={<Products searchQuery={searchQuery} />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>

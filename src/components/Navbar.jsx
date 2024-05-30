@@ -1,7 +1,10 @@
-import { Box, Flex, Link, Spacer, Text } from "@chakra-ui/react";
+import { Box, Flex, Link, Spacer, Text, Input } from "@chakra-ui/react";
+import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <Box bg="brand.800" px={4} py={2} color="white">
       <Flex align="center">
@@ -19,6 +22,13 @@ const Navbar = () => {
           <Link as={RouterLink} to="/contact" px={2}>
             Contact Us
           </Link>
+          <Input
+            placeholder="Search products..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            width="200px"
+            marginRight="2"
+          />
         </Flex>
       </Flex>
     </Box>
